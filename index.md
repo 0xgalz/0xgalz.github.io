@@ -16,7 +16,7 @@ It’s important to note that the code I originally researched was 8086 assembly
 Fig.1- Debug print with indicative error string
 
 ![alt text](https://github.com/0xgalz/0xgalz.github.io/blob/master/DbgPrintExample_Path.JPG?raw=true "debug print example- filename")
-Fig.1- Debug print with with the source file name 
+Fig.2- Debug print with with the source filename 
 
 ### Finding the Log Function Names
 Since this code had way too many debug prints I decided to write something to deal with them.
@@ -135,55 +135,22 @@ def is_function_name(cur_func_name):
    else:
        return False
 ```
+## Change Function Name
+This is the last part of the script, which is changing the function name. It can easily be done by running the following command:
+```python
+idaapi.set_name(function_start, new_filename, idaapi.SN_FORCE)
+```
+It is important to note that the idaapi.SN_FORCE flag can only be used in IDA 7 version and above. 
+
 ## Handling Errors
 Since I had a large binary some of the debug functions I found once in a while acted a little different, although 99.9% of the time no error occured, I couldn’t ignore these cases.
 Even if some error occurs the script will continue running on all the other functions, but I wanted to track the error and change the failed functions names.  
 When those errors happen, messages appear in the output window:
-picture>
+
+![alt text](https://github.com/0xgalz/0xgalz.github.io/blob/master/Errors.png?raw=true "Error Handling- Example")
+Fig.4- IDA Output Window, on error
+
 Error messages have the address of the failure, the log function name and the current name of the function.
 
 # The End
-Basically, it’s not rocket science and this is in general all the code parts in my script. Hopefully it will help people in their path to increase code coverage or just open them to the magical world of IDAPython.  I hope you enjoyed reading, any feedback is welcome :) You can find to full code in ::gist::
-
-
-
-
-
-
-## Welcome to GitHub Pages
-
-You can use the [editor on GitHub](https://github.com/0xgalz/0xgalz.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/0xgalz/0xgalz.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Basically, it’s not rocket science and this is in general all the code parts in my script. Hopefully it will help people in their path to increase code coverage or just open them to the magical world of IDAPython.  I hope you enjoyed reading, any feedback is welcome :) You can find to full code in [here](https://gist.github.com/0xgalz/cce0bfead8458226faddad6dd7f88350).
