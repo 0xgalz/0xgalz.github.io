@@ -12,8 +12,8 @@ The main problem I had, was that I needed to map a large binary without any symb
 From the assembly side the debug prints are gold mines. They can show the purpose of the function and also can show the real filenames which help understanding what module this function is part of.
 It’s important to note that the code I originally researched was 8086 assembly running on a x64 OS, while most of the functions are using *fastcall* calling convention. Thus I'm using fastcall as an example in my blog.   
 
-<picture>
-<picture>
+picture>
+picture>
 
 ## Finding the Log Function Names
 Since this code had way too many debug prints I decided to write something to deal with them.
@@ -26,7 +26,7 @@ Before creating the script I figured out that approximately 10 different functio
 My goal was to change IDA’s default function names to be more indicative based on their debug prints.
 
 *For example:*
-<picture>
+picture>
 
 The next parts will shed some light on the different parts of the script.
 
