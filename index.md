@@ -1,4 +1,4 @@
-# Automaticly Mapping Binaries With Debug Print Using IDAPython
+# Automatically Mapping Binaries with Debug Print using IDAPython
 
 This blog gives a short overview on a script I wrote that replaces the default function names in IDA with names constructed from debug prints, hopefully it will also provide the basic knowledge for you to create one of your own.
 
