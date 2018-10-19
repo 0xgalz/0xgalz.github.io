@@ -44,10 +44,10 @@ I decided to organize the function names as part of a global dictionary:
 FUNCTIONS_REGISTERS = {Function_Name:Register, Function_Name_1, Register_1... }
 ```
 Function names as the keys, and their values are the relevant register with the debug print.
-For example if the code has both the functions in Fig.3 and Fig.4, it would look like: 
+For example: 
 
 ```python
-FUNCTIONS_REGISTERS = {'gz_WriteLogFile': 'rdx', 'g_LogError': 'rdx'}
+FUNCTIONS_REGISTERS = {'g_WriteLogFile': 'rdx', 'g_LogError': 'rdx'}
 ```
 The script I wrote for that part is as follows
 ```python
