@@ -12,10 +12,7 @@ The main problem I had, was that I needed to map a large binary without any symb
 From the assembly side the debug prints are gold mines. They can show the purpose of the function and also can show the real filenames which help understanding what module this function is part of.
 It’s important to note that the code I originally researched was 8086 assembly running on a x64 OS, while most of the functions are using *fastcall* calling convention. Thus I'm using fastcall as an example in my blog.   
 
-picture>
-picture>
-
-## Finding the Log Function Names
+### Finding the Log Function Names
 Since this code had way too many debug prints I decided to write something to deal with them.
 There are a few ways to figure out what functions deal with debug prints.
 One way is to find those functions based on libc function calls inside them or by their behavior, this is a more complex and time-consuming way but it’s the more elegant one.
@@ -30,7 +27,7 @@ picture>
 
 The next parts will shed some light on the different parts of the script.
 
-## Putin it all together
+### Putin it all together
 As I see it, there are at least 2 ways to find the places log functions were called from, the lazy way and the less lazy way.
 ### The lazy way 
 Go over all the assembly and look for a “call” instruction, followed by an argument with the log functions name.
